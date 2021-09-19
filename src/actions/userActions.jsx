@@ -3,11 +3,10 @@ export const DELETE_USER = "deleteUser"
 export const EDIT_USER = "editUser"
 
 export const addUser = (user) => {
-    console.log("addUser", user);
-    user.id = Math.random().toString();
-    return {
-        type: ADD_USER,
-        payload: user
+    return (dispatch , state, {getFirestore}) => {
+        getFirestore().collection('user').add(user).then((doc) =>{
+
+        })
     }
 }
 export const deleteUser = (id) => {
